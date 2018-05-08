@@ -87,8 +87,11 @@ bindOptional f (Full a) =
   Optional a
   -> Optional a
   -> Optional a
-(<+>) =
-  error "todo: Course.Optional#(<+>)"  
+(<+>) (Full l) _ =
+  Full l
+(<+>) Empty o =
+  o
+
 
 applyOptional :: Optional (a -> b) -> Optional a -> Optional b
 applyOptional f a = bindOptional (\f' -> mapOptional f' a) f
