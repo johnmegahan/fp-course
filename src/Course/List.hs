@@ -169,8 +169,8 @@ filter p =
   List a
   -> List a
   -> List a
-(++) =
-  error "todo: Course.List#(++)"
+(++) xs ys =
+  foldRight (:.) ys xs
 
 infixr 5 ++
 
